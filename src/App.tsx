@@ -19,7 +19,7 @@ function App() {
   };
 
   // rr - separate component for loading and error
-  if (isLoading || (!filterText && !filteredEmployees.length))
+  if (isLoading)
     return <div>Loading...</div>;
   else if (error) return <div>{error}</div>;
 
