@@ -204,7 +204,8 @@ describe("Employee Search", () => {
     const { getByLabelText, getByText } = render(<App />);
     const searchInput = await getByLabelText("Employee Search:");
     fireEvent.change(searchInput, { target: { value: "RandomName" } });
-    const errorMessage = await getByText("No Employees Found!!!");
+    const errorMessage = await getByText("No employees found!");
     expect(errorMessage).toBeInTheDocument();
   });
 });
+
