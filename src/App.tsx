@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./App.css";
 import EmployeeList from "./components/EmployeeList";
 import EmployeeSearch from "./components/EmployeeSeach";
 import SubmitButton from "./components/SubmitButton";
 import useEmployee from "./hooks/useEmployee";
 import useFilteredEmployees from "./hooks/useFilteredEmployees";
+import useHandleLogToConsole from "./hooks/useHandleLogToConsole";
 
 function App() {
   const { employees, isLoading, error } = useEmployee();
-
   const [filterText, setFilterText] = useState<string>("");
-
   const { filteredEmployees } = useFilteredEmployees(employees, filterText);
+  const { handleLogToConsole } = useHandleLogToConsole(filteredEmployees);
 
-  // rr - rerender child ? change method name to refect what it is doing
-  const onSearch = (searchText: string) => {
+  // memoize onSearch function
+  const onSearch = useCallback((searchText: string) => {
     setFilterText(searchText);
-  };
+  }, []);
 
   // rr - separate component for loading and error
   if (isLoading)
@@ -35,8 +35,8 @@ function App() {
       }}
     >
       <EmployeeSearch onSearch={onSearch} />
-      <SubmitButton employees={filteredEmployees} />
-      <EmployeeList employees={filteredEmployees} />
+      <SubmitButton handleClick={handleLogToConsole} />
+      <EmployeeList employees={filterText ? filteredEmployees : employees} />
     </div>
   );
 }
