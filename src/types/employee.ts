@@ -3,9 +3,9 @@ export enum department  {
     FINANCE = 'Finance'
 }
 
-enum active {
-    Y = 'Y',
-    N = 'N'
+export enum active {
+    Yes = 'Y',
+    No = 'N'
 }
 
 export interface Employee {
