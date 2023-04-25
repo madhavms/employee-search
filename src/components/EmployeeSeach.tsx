@@ -1,9 +1,10 @@
+import React from "react";
+
 interface SearchProps {
   onSearch: (search: string) => void;
 }
 
 const EmployeeSearch: React.FC<SearchProps> = ({ onSearch }) => {
-
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value);
   };
@@ -16,4 +17,4 @@ const EmployeeSearch: React.FC<SearchProps> = ({ onSearch }) => {
   );
 };
 
-export default EmployeeSearch;
+export default React.memo(EmployeeSearch);
