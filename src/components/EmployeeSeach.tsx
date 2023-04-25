@@ -11,8 +11,13 @@ const EmployeeSearch: React.FC<SearchProps> = ({ onSearch }) => {
 
   return (
     <div>
-      <label>User Search: </label>
-      <input placeholder="Enter the name" onChange={handleOnChange} />
+      <label htmlFor="searchInput">Employee Search:</label>
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Enter a name"
+        onChange={handleOnChange}
+      />
     </div>
   );
 };
