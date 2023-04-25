@@ -1,33 +1,64 @@
-import { Employee, department } from "../types/employee";
+import { Employee } from "../types/employee";
+import { getEmployeeResultByDept } from "../utils/employeeUtils";
 import { NoEmployeesFound } from "./Error";
+import styled from "@emotion/styled";
 
 interface ListProps {
   employees: Employee[];
 }
 
-const EmployeeList: React.FC<ListProps> = ({ employees }) => {
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 300px;
+`;
 
+const EmptyStateText = styled.p`
+  font-size: 1.2rem;
+  color: #777;
+`;
+
+const List = styled.ol`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const ListItem = styled.li`
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const EmployeeList: React.FC<ListProps> = ({ employees }) => {
   if (!employees.length) {
-    return <NoEmployeesFound />;
+    return (
+      <Container>
+        <NoEmployeesFound />
+      </Container>
+    );
   }
 
   return (
-    <div style={{display:'flex', flexDirection:'column', minHeight:'300px'}}>
-      {employees.length ? (
-        <ol>
-          {employees.map((employee) => {
-            const name = `${employee.firstName} ${employee.lastName}`;
-            const result =
-              employee.department === department.FINANCE
-                ? `${name} - ${employee.email}`
-                : `${name} - ${employee.tel}`;
-            return <li key={employee.id}>{result}</li>;
-          })}
-        </ol>
-      ) : (
-        <NoEmployeesFound />
-      )}
-    </div>
+    <Container>
+      <List>
+        {employees.map((employee) => {
+          return (
+            <ListItem key={employee.id}>{getEmployeeResultByDept(employee)}</ListItem>
+          );
+        })}
+      </List>
+    </Container>
   );
 };
 
