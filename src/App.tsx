@@ -1,11 +1,11 @@
 import { useCallback, useState } from "react";
-import "./App.css";
 import EmployeeList from "./components/EmployeeList";
 import EmployeeSearch from "./components/EmployeeSeach";
 import SubmitButton from "./components/SubmitButton";
 import useEmployee from "./hooks/useEmployee";
 import useFilteredEmployees from "./hooks/useFilteredEmployees";
 import useHandleLogToConsole from "./hooks/useHandleLogToConsole";
+import "./App.css";
 
 function App() {
   const { employees, isLoading, error } = useEmployee();
@@ -19,8 +19,7 @@ function App() {
   }, []);
 
   // rr - separate component for loading and error
-  if (isLoading)
-    return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>;
   else if (error) return <div>{error}</div>;
 
   return (
