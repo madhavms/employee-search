@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Employee, department } from "../types/employee";
 import { NoEmployeesFound } from "./Error";
 
