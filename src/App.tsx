@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import EmployeeList from "./components/EmployeeList";
+import EmployeeSearch from "./components/EmployeeSeach";
+import SubmitButton from "./components/SubmitButton";
+import useEmployee from "./hooks/useEmployee";
+import useFilteredEmployees from "./hooks/useFilteredEmployees";
 
 function App() {
+  const { employees, isLoading, error } = useEmployee();
+
+  const [filterText, setFilterText] = useState<string>("");
+
+  const { filteredEmployees } = useFilteredEmployees(employees, filterText);
+
+  // rr - rerender child ? change method name to refect what it is doing
+  const onSearch = (searchText: string) => {
+    setFilterText(searchText);
+  };
+
+  // rr - separate component for loading and error
+  if (isLoading || (!filterText && !filteredEmployees.length))
+    return <div>Loading...</div>;
+  else if (error) return <div>{error}</div>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // rr - styles in .css file
+    <div
+      className="centered-container"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <EmployeeSearch onSearch={onSearch} />
+      <SubmitButton employees={filteredEmployees} />
+      <EmployeeList employees={filteredEmployees} />
     </div>
   );
 }

@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Sets the height of the container to 100% of the viewport */
+}
