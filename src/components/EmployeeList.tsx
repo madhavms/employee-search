@@ -1,5 +1,5 @@
-import { Employee } from "../types/employee";
-import { getEmployeeResultByDept } from "../utils/employeeUtils";
+import { Employee } from "../types";
+import { getEmployeeResultByDept } from "../utils";
 import { NoEmployeesFound } from "./NoEmployeeFound";
 import styled from "@emotion/styled";
 

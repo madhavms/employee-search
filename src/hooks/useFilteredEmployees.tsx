@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Employee } from "../types/employee";
+import { Employee } from "../types";
 
-const useFilteredEmployees = (employees: Employee[], filterText: string) => {
+export const useFilteredEmployees = (employees: Employee[], filterText: string) => {
   const [filteredEmployees, setFilteredEmployees] =
     useState<Employee[]>(employees);
 
@@ -20,4 +20,3 @@ const useFilteredEmployees = (employees: Employee[], filterText: string) => {
   return { filteredEmployees };
 };
 
-export default useFilteredEmployees;

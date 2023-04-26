@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "./App";
-import useEmployee from "./hooks/useEmployee";
-import { employees } from "./mock-data/employeeData";
+import {useEmployee} from "./hooks";
+import { employees } from "./mock-data";
 
 jest.mock("chalk", () => ({
   green: (text: string) => text,

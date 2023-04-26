@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Employee } from "../types/employee";
+import { Employee } from "../types";
 import axios from "axios";
 
-const useEmployee = () => {
+export const useEmployee = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
@@ -30,4 +30,3 @@ const useEmployee = () => {
   return { employees, isLoading, error };
 };
 
-export default useEmployee;

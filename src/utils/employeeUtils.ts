@@ -1,4 +1,4 @@
-import { Employee, department } from "../types/employee";
+import { Employee, department } from "../types";
 
 export const getEmployeeResultByDept = (employee: Employee): string => {
   const name = `${employee.firstName} ${employee.lastName}`;

@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
-import useFilteredEmployees from "./useFilteredEmployees";
-import { employees } from "../mock-data/employeeData";
+import {useFilteredEmployees} from "./useFilteredEmployees";
+import { employees } from "../mock-data";
 
 describe ('useFilteredEmployees hook', () => {
     test('should return all employees when filterText is empty', () => {

@@ -1,14 +1,14 @@
-import { Employee } from "../types/employee";
+import { Employee } from "../types";
 import chalk from "chalk";
 import { useState } from "react";
-import { getEmployeeResultByDept } from "../utils/employeeUtils";
+import { getEmployeeResultByDept } from "../utils";
 
 const printToConsole = (employee: Employee) => {
   const employeeData = getEmployeeResultByDept(employee);
   console.log(chalk.green(employeeData));
 };
 
-const useHandleLogToConsole = (employees: Employee[]) => {
+export const useHandleLogToConsole = (employees: Employee[]) => {
   const [clickCount, setClickCount] = useState<number>(0);
 
   const handleLogToConsole = () => {
@@ -30,4 +30,3 @@ const useHandleLogToConsole = (employees: Employee[]) => {
   return { handleLogToConsole };
 };
 
-export default useHandleLogToConsole;
