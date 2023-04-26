@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, renderHook } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import SubmitButton from "../components/SubmitButton";
+import SubmitButton from "./SubmitButton";
 import useHandleLogToConsole from "../hooks/useHandleLogToConsole";
 import { employees } from "../mock-data/employeeData";
 

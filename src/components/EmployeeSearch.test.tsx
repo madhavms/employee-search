@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import EmployeeSearch from "../components/EmployeeSearch";
+import EmployeeSearch from "./EmployeeSearch";
 
 describe("EmployeeSearch Component", () => {
    test("on value change onChange is called", () => {
