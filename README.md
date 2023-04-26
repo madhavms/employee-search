@@ -14,7 +14,7 @@ The project includes the following tasks:
 ### Task 1: Display a number of employees on screen
 The application displays a list of employees with the following information:
 - First name
-- Last name (only for Finance department)
+- Last name
 - Email (only for Finance department)
 - Telephone (only for IT department)
 
