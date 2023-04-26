@@ -19,7 +19,7 @@ The application displays a list of employees with the following information:
 - Telephone (only for IT department)
 
 ### Task 2: Provide an Employee search functionality
-The application includes a search box that allows users to search for employees by name or department. If no matches are found, an appropriate error message is displayed.
+The application includes a search box that allows users to search for employees by name. If no matches are found, an appropriate error message is displayed.
 
 ### Task 3: Provide an Submit functionality
 The application includes a "Submit" button that logs the currently visible employees in the console.
