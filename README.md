@@ -30,3 +30,6 @@ The application includes a "Submit" button that logs the currently visible emplo
 3. Start the development server: `npm start`
 4. Run the tests: `npm test`
 
+## Application Demo
+
+![EmployeeSearchDemo.gif](https://github.com/madhavms/high-low-chart/blob/master/images/EmployeeSearchDemo.gif)
