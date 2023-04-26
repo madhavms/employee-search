@@ -1,3 +1,18 @@
-export const NoEmployeesFound: React.FC = () => (
-  <div>No Employees Found!!!</div>
-);
+import styled from '@emotion/styled';
+
+export const ErrorBanner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFD3D3;
+  color: #C20000;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px gray;
+  max-width: 500px;
+
+  @media (max-width: 570px) {
+    font-size:1rem;
+  }
+`;
