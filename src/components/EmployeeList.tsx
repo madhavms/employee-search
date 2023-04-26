@@ -1,6 +1,6 @@
 import { Employee } from "../types";
 import { getEmployeeResultByDept } from "../utils";
-import { NoEmployeesFound } from "./NoEmployeeFound";
+import { ErrorBanner, ErrorComponent } from "./Error";
 import styled from "@emotion/styled";
 
 interface ListProps {
@@ -29,7 +29,7 @@ const ListItem = styled.li`
 
 export const EmployeeList: React.FC<ListProps> = ({ employees }) => {
   if (!employees.length) {
-    return <NoEmployeesFound />;
+    return <ErrorBanner>No employees found!</ErrorBanner>
   }
 
   return (
