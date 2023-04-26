@@ -1,15 +1,12 @@
-import React, { useCallback, useState } from "react";
-import EmployeeList from "./components/EmployeeList";
-import EmployeeSearch from "./components/EmployeeSearch";
-import SubmitButton from "./components/SubmitButton";
-import useEmployee from "./hooks/useEmployee";
-import useFilteredEmployees from "./hooks/useFilteredEmployees";
-import useHandleLogToConsole from "./hooks/useHandleLogToConsole";
+import { Fragment, useCallback, useState } from 'react';
 import styled from "@emotion/styled";
-import "./App.css";
-import Navbar from "./components/NavBar";
-import LoaderComponent from "./components/Loader";
+import EmployeeList from "./components/EmployeeList";
 import {ErrorComponent} from "./components/Error";
+import EmployeeSearch from "./components/EmployeeSearch";
+import LoaderComponent from "./components/Loader";
+import Navbar from "./components/NavBar";
+import SubmitButton from "./components/SubmitButton";
+import {useEmployee, useFilteredEmployees, useHandleLogToConsole} from "./hooks";
 
 const Container = styled.div`
   display: flex;
@@ -45,6 +42,7 @@ function App() {
     setFilterText(searchText);
   }, []);
 
+  // v63 why React.KeyboardEvent<HTMLInputElement> ? not show error
   const onKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.currentTarget.blur();
@@ -56,7 +54,7 @@ function App() {
   else if (error) return <ErrorComponent message={error}/>;
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Navbar />
       <Container>
         <SearchContainer>
@@ -65,7 +63,7 @@ function App() {
         </SearchContainer>
         <EmployeeList employees={filterText ? filteredEmployees : employees} />
       </Container>
-    </React.Fragment>
+    </Fragment>
   );
 }
 
