@@ -21,6 +21,13 @@ jobs:
       - name: Install dependencies
         working-directory: ./
         run: npm ci
+      
+      - name: Set environment variables
+        env:
+          REACT_APP_EMPLOYEE_DATA_PATH: ${{ secrets.REACT_APP_EMPLOYEE_DATA_PATH }}
+
+        run: |
+          echo "REACT_APP_EMPLOYEE_DATA_PATH=${REACT_APP_EMPLOYEE_DATA_PATH}" >> ./.env
 
       - name: Build React app
         working-directory: ./
