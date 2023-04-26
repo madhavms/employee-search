@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import EmployeeList from "../../components/EmployeeList";
 import { Employee, department, active } from "../../types/employee";

@@ -1,4 +1,4 @@
-import { Employee, department } from "../types/employee";
+import { Employee } from "../types/employee";
 import chalk from "chalk";
 import { useState } from "react";
 import { getEmployeeResultByDept } from "../utils/employeeUtils";
