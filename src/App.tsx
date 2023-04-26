@@ -43,7 +43,6 @@ function App() {
   const [filterText, setFilterText] = useState<string>("");
   const { filteredEmployees } = useFilteredEmployees(employees, filterText);
   const { handleLogToConsole } = useHandleLogToConsole(filteredEmployees);
-  console.log("process.env.NODE_ENV", process.env.NODE_ENV);
   // memoize onSearch function
   const onSearch = useCallback((searchText: string) => {
     setFilterText(searchText);
@@ -60,19 +59,20 @@ function App() {
     [handleLogToConsole]
   );
 
-  if (isLoading) return <Loader />;
-  else if (error) return <ErrorComponent message={error} />;
-
   return (
     <Fragment>
       <Navbar />
-      <Container>
-        <SearchContainer>
-          <EmployeeSearch onSearch={onSearch} onKeyDown={onKeyDown} />
-          <SubmitButton handleClick={handleLogToConsole} />
-        </SearchContainer>
-        <EmployeeList employees={filterText ? filteredEmployees : employees} />
-      </Container>
+      {isLoading && <Loader />}
+      {error && <ErrorComponent message={error} />}
+      {!isLoading && !error && (
+        <Container>
+          <SearchContainer>
+            <EmployeeSearch onSearch={onSearch} onKeyDown={onKeyDown} />
+            <SubmitButton handleClick={handleLogToConsole} />
+          </SearchContainer>
+          <EmployeeList employees={filterText ? filteredEmployees : employees} />
+        </Container>
+      )}
     </Fragment>
   );
 }
