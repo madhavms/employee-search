@@ -3,6 +3,7 @@ import { Employee } from "../types/employee";
 import axios from "axios";
 
 const useEmployee = () => {
+  
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
