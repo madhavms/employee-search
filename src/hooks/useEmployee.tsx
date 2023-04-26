@@ -18,7 +18,7 @@ const useEmployee = () => {
         setError("");
         setEmployees(data);
       } catch (err: any) {
-        setError(err.message);
+        setError("Unable to fetch employees data.");
       } finally {
         setIsLoading(false);
       }

@@ -23,7 +23,7 @@ describe("useEmployee hook", () => {
     expect(result.current.isLoading).toBe(true);
     await waitFor(() => expect(result.current.isLoading).toBe(false));
     expect(result.current.isLoading).toBe(false);
-    expect(result.current.error).toBe(null);
+    expect(result.current.error).toBe("");
     expect(result.current.employees).toEqual(employees);
   });
 });
