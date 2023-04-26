@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "../../App";
 import useEmployee from "../../hooks/useEmployee";
+import { employees } from "../../testData/employeeData";
 
 jest.mock("chalk", () => ({
     green: (text: string) => text,
@@ -12,33 +13,7 @@ jest.mock("chalk", () => ({
   jest.mock("../../hooks/useEmployee");
 
 describe("Employee Search Functionality", () => {
-    test("should show only matching employees when a search query is entered", async () => {
-      const employees = [
-        {
-          id: 1,
-          firstName: "John",
-          lastName: "Doe",
-          department: "Finance",
-          email: "johndoe@example.com",
-          tel: "444-444-4445",
-        },
-        {
-          id: 2,
-          firstName: "Jane",
-          lastName: "Doe",
-          department: "IT",
-          email: "janedoe@example.com",
-          tel: "555-555-5555",
-        },
-        {
-          id: 3,
-          firstName: "Bob",
-          lastName: "Smith",
-          department: "Finance",
-          email: "bobsmith@example.com",
-          tel: "333-333-3335",
-        },
-      ];
+    test("should show only matching employees when a search query is entered", () => {
   
       const data = {
         isLoading: false,
@@ -49,42 +24,14 @@ describe("Employee Search Functionality", () => {
       (useEmployee as jest.Mock).mockReturnValue(data);
       render(<App />);
       const searchInput = screen.getByLabelText("Employee Search:");
-      fireEvent.change(searchInput, { target: { value: "Doe" } });
-      const johnDoe = screen.getByText("John Doe - johndoe@example.com");
-      const janeDoe = screen.getByText("Jane Doe - 555-555-5555");
-      const bobSmith = screen.queryByText("Bob Smith - bobsmith@example.com");
-      expect(johnDoe).toBeInTheDocument();
-      expect(janeDoe).toBeInTheDocument();
-      expect(bobSmith).not.toBeInTheDocument();
+      fireEvent.change(searchInput, { target: { value: "Jake" } });
+      const jakeRoss = screen.getByText("Jake Ross - jake.ross@domain.com");
+      const ianMoss = screen.queryByText("Ian Moss - 33333");
+      expect(jakeRoss).toBeInTheDocument();
+      expect(ianMoss).not.toBeInTheDocument();
     });
   
-    test("dispaly error message when no employees found", async () => {
-      const employees = [
-        {
-          id: 1,
-          firstName: "John",
-          lastName: "Doe",
-          department: "Finance",
-          email: "johndoe@example.com",
-          tel: "444-444-4445",
-        },
-        {
-          id: 2,
-          firstName: "Jane",
-          lastName: "Doe",
-          department: "IT",
-          email: "janedoe@example.com",
-          tel: "555-555-5555",
-        },
-        {
-          id: 3,
-          firstName: "Bob",
-          lastName: "Smith",
-          department: "Finance",
-          email: "bobsmith@example.com",
-          tel: "333-333-3335",
-        },
-      ];
+    test("display error message when no employees found", () => {
   
       const data = {
         isLoading: false,
