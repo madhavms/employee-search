@@ -13,17 +13,17 @@ const useEmployee = () => {
         const { data } = await axios("/employees.json");
         setError(null);
         setEmployees(data);
-        setIsLoading(false);
       } catch (err) {
-        setIsLoading(false)
         setError("Unable to fetch employees data.");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     getEmployees();
   }, []);
 
-  return {employees, isLoading, error}
+  return { employees, isLoading, error };
 };
 
 export default useEmployee;
