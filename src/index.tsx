@@ -1,3 +1,4 @@
+import {StrictMode} from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
@@ -7,7 +8,8 @@ import "./index.css";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-root.render(
+
+const renderApp = () => (
   <BrowserRouter>
     <Routes>
       <Route path="*" element={<App />} />
@@ -15,5 +17,14 @@ root.render(
   </BrowserRouter>
 );
 
-reportWebVitals();
+if (process.env.NODE_ENV === "development") {
+  root.render(
+    <StrictMode>
+      {renderApp()}
+    </StrictMode>
+  );
+} else {
+  root.render(renderApp());
+}
 
+reportWebVitals();
