@@ -1,13 +1,10 @@
 import { Employee, department } from "../types/employee";
 import chalk from "chalk";
 import { useState } from "react";
+import { getEmployeeResultByDept } from "../utils/employeeUtils";
 
 const printToConsole = (employee: Employee) => {
-  const name = `${employee.firstName} ${employee.lastName}`;
-  const employeeData =
-    employee.department === department.FINANCE
-      ? `${name} - ${employee.email}`
-      : `${name} - ${employee.tel}`;
+  const employeeData = getEmployeeResultByDept(employee);
   console.log(chalk.green(employeeData));
 };
 
@@ -26,7 +23,7 @@ const useHandleLogToConsole = (employees: Employee[]) => {
 
     setClickCount(clickCount + 1);
     employees.length === 0
-      ? console.log(chalk.red("No Employees Found"))
+      ? console.log(chalk.red("No Employees Found!"))
       : employees.map(printToConsole);
   };
 
