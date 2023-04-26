@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import App from "../../App";
-import useEmployee from "../../hooks/useEmployee";
-import { employees } from "../../testData/employeeData";
+import App from "../App";
+import useEmployee from "../hooks/useEmployee";
+import { employees } from "../mock-data/employeeData";
 
 jest.mock("chalk", () => ({
     green: (text: string) => text,
@@ -10,7 +10,7 @@ jest.mock("chalk", () => ({
     red: (text: string) => text,
   }));
   
-  jest.mock("../../hooks/useEmployee");
+  jest.mock("../hooks/useEmployee");
 
 describe("Employee Search Functionality", () => {
     test("should show only matching employees when a search query is entered", () => {

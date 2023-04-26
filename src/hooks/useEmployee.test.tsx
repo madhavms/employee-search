@@ -1,8 +1,8 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import { renderHook, waitFor } from "@testing-library/react";
-import useEmployee from "../../hooks/useEmployee";
-import { employees } from "../../testData/employeeData";
+import useEmployee from "./useEmployee";
+import { employees } from "../mock-data/employeeData";
 
 describe("useEmployee hook", () => {
   test("should handle errors", async () => {

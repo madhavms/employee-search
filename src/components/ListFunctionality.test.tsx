@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import EmployeeList from "../../components/EmployeeList";
-import { department } from "../../types/employee";
-import { employees } from "../../testData/employeeData";
+import EmployeeList from "./EmployeeList";
+import { department } from "../types/employee";
+import { employees } from "../mock-data/employeeData";
 
 describe("List Functionality", () => {
     test("renders correct number of employees", async () => {

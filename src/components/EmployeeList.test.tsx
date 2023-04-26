@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import EmployeeList from "../../components/EmployeeList";
-import { employees } from "../../testData/employeeData";
+import EmployeeList from "./EmployeeList";
+import { employees } from "../mock-data/employeeData";
 
 describe("EmployeeList Component", () => {
     test("renders correct number of employees", () => {

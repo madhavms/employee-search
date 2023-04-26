@@ -1,7 +1,7 @@
 import { render, fireEvent, screen, renderHook } from "@testing-library/react";
-import useHandleLogToConsole from "../../hooks/useHandleLogToConsole";
-import SubmitButton from "../../components/SubmitButton";
-import { employees } from "../../testData/employeeData";
+import useHandleLogToConsole from "../hooks/useHandleLogToConsole";
+import SubmitButton from "../components/SubmitButton";
+import { employees } from "../mock-data/employeeData";
 
 jest.mock("chalk", () => ({
   green: (text: string) => text,
