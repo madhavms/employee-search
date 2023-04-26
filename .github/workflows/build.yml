@@ -1,0 +1,33 @@
+name: Build and Deploy Employee Search App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.16.0'
+
+      - name: Install dependencies
+        working-directory: ./
+        run: npm ci
+
+      - name: Build React app
+        working-directory: ./
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.3
+        with:
+          branch: gh-pages
+          folder: ./build
