@@ -9,6 +9,7 @@ import styled from "@emotion/styled";
 import "./App.css";
 import Navbar from "./components/NavBar";
 import LoaderComponent from "./components/Loader";
+import {ErrorComponent} from "./components/Error";
 
 const Container = styled.div`
   display: flex;
@@ -46,17 +47,15 @@ function App() {
 
   const onKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      event.currentTarget.blur(); // remove focus from input field
+      event.currentTarget.blur();
       handleLogToConsole();
     }
   }, [handleLogToConsole]);
 
-  // rr - separate component for loading and error
   if (isLoading) return <LoaderComponent/>;
-  else if (error) return <div>{error}</div>;
+  else if (error) return <ErrorComponent message={error}/>;
 
   return (
-    // rr - styles in .css file
     <React.Fragment>
       <Navbar />
       <Container>
