@@ -1,6 +1,6 @@
 import { Employee } from "../types";
 import { getEmployeeResultByDept } from "../utils";
-import { ErrorBanner, ErrorComponent } from "./Error";
+import { ErrorBanner } from "./Error";
 import styled from "@emotion/styled";
 
 interface ListProps {
