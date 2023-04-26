@@ -5,7 +5,7 @@ import axios from "axios";
 const useEmployee = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -15,10 +15,10 @@ const useEmployee = () => {
             ? `${process.env.REACT_APP_EMPLOYEE_DATA_PATH}`
             : "/employees.json"
         );
-        setError(null);
+        setError("");
         setEmployees(data);
       } catch (err: any) {
-        setError("Unable to fetch employees data.");
+        setError(err.message);
       } finally {
         setIsLoading(false);
       }
