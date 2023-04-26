@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import styled from "@emotion/styled";
 
 interface SearchProps {
@@ -34,7 +34,7 @@ const Container = styled.div`
   height: 60px;
 `;
 
-export const EmployeeSearch: React.FC<SearchProps> = React.memo(
+export const EmployeeSearch: React.FC<SearchProps> = memo(
   ({ onSearch, onKeyDown }) => {
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       onSearch(event.target.value);
