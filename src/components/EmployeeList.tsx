@@ -1,6 +1,6 @@
 import { Employee } from "../types/employee";
 import { getEmployeeResultByDept } from "../utils/employeeUtils";
-import { NoEmployeesFound } from "./Error";
+import { NoEmployeesFound } from "./NoEmployeeFound";
 import styled from "@emotion/styled";
 
 interface ListProps {
@@ -9,15 +9,9 @@ interface ListProps {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: row;  
   justify-content: center;
-  align-items: flex-start;
-  min-height: 300px;
-`;
-
-const EmptyStateText = styled.p`
-  font-size: 1.2rem;
-  color: #777;
+  align-items: center;
 `;
 
 const List = styled.ol`
