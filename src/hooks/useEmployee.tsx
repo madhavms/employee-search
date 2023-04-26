@@ -10,7 +10,7 @@ const useEmployee = () => {
   useEffect(() => {
     const getEmployees = async () => {
       try {
-        const { data } = await axios(`${process.env.REACT_APP_EMPLOYEE_DATA_PATH}` || '/employees.json');
+        const { data } = await axios(process.env.REACT_APP_EMPLOYEE_DATA_PATH ? `${process.env.REACT_APP_EMPLOYEE_DATA_PATH}` : '/employees.json');
         setError(null);
         setEmployees(data);
       } catch (err) {
