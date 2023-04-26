@@ -1,12 +1,19 @@
-import { Fragment, useCallback, useState } from 'react';
+import { Fragment, useCallback, useState } from "react";
 import styled from "@emotion/styled";
-import EmployeeList from "./components/EmployeeList";
-import {ErrorComponent} from "./components/Error";
-import EmployeeSearch from "./components/EmployeeSearch";
-import LoaderComponent from "./components/Loader";
-import Navbar from "./components/NavBar";
-import SubmitButton from "./components/SubmitButton";
-import {useEmployee, useFilteredEmployees, useHandleLogToConsole} from "./hooks";
+import {
+  EmployeeList,
+  ErrorComponent,
+  EmployeeSearch,
+  Loader,
+  Navbar,
+  SubmitButton,
+} from "./components";
+
+import {
+  useEmployee,
+  useFilteredEmployees,
+  useHandleLogToConsole,
+} from "./hooks";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +22,7 @@ const Container = styled.div`
   justify-content: flex-start;
   height: 100vh;
   padding-top: 5rem;
-  gap:1rem;
+  gap: 1rem;
 `;
 
 const SearchContainer = styled.div`
@@ -43,22 +50,25 @@ function App() {
   }, []);
 
   // v63 why React.KeyboardEvent<HTMLInputElement> ? not show error
-  const onKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      event.currentTarget.blur();
-      handleLogToConsole();
-    }
-  }, [handleLogToConsole]);
+  const onKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === "Enter") {
+        event.currentTarget.blur();
+        handleLogToConsole();
+      }
+    },
+    [handleLogToConsole]
+  );
 
-  if (isLoading) return <LoaderComponent/>;
-  else if (error) return <ErrorComponent message={error}/>;
+  if (isLoading) return <Loader />;
+  else if (error) return <ErrorComponent message={error} />;
 
   return (
     <Fragment>
       <Navbar />
       <Container>
         <SearchContainer>
-          <EmployeeSearch onSearch={onSearch} onKeyDown={onKeyDown}/>
+          <EmployeeSearch onSearch={onSearch} onKeyDown={onKeyDown} />
           <SubmitButton handleClick={handleLogToConsole} />
         </SearchContainer>
         <EmployeeList employees={filterText ? filteredEmployees : employees} />

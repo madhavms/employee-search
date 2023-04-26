@@ -27,7 +27,7 @@ const ListItem = styled.li`
   }
 `;
 
-const EmployeeList: React.FC<ListProps> = ({ employees }) => {
+export const EmployeeList: React.FC<ListProps> = ({ employees }) => {
   if (!employees.length) {
     return <NoEmployeesFound />;
   }
@@ -45,4 +45,3 @@ const EmployeeList: React.FC<ListProps> = ({ employees }) => {
   );
 };
 
-export default EmployeeList;

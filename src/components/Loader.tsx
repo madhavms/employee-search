@@ -21,7 +21,7 @@ const Spinner = styled.div`
   }
 `;
 
-const Loader: React.FC = () => {
+export const Loader: React.FC = () => {
   return (
     <Container>
       <Spinner />
@@ -29,4 +29,3 @@ const Loader: React.FC = () => {
   );
 };
 
-export default Loader;

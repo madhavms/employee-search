@@ -18,7 +18,7 @@ const Title = styled.h1`
   letter-spacing: 1px;
 `;
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
       <Title>Employee Search</Title>
@@ -26,4 +26,3 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;

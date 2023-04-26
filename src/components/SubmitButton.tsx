@@ -27,13 +27,12 @@ const StyledButton = styled.button`
   }
 `;
 
-const SubmitButton: React.FC<ButtonProps> = ({ handleClick }) => {
+export const SubmitButton: React.FC<ButtonProps> = ({ handleClick }) => {
   return (
     <StyledButton onClick={handleClick}>Submit</StyledButton>
   );
 };
 
-export default SubmitButton;
 
 
 

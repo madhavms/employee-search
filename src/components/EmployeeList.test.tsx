@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import EmployeeList from "./EmployeeList";
+import {EmployeeList} from "./EmployeeList";
 import { department } from "../types";
 import { employees } from "../mock-data";
 
