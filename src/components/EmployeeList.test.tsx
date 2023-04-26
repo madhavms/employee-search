@@ -4,6 +4,13 @@ import {EmployeeList} from "./EmployeeList";
 import { department } from "../types";
 import { employees } from "../mock-data";
 
+jest.mock("chalk", () => ({
+    green: (text: string) => text,
+    blue: (text: string) => text,
+    red: (text: string) => text,
+  }));
+
+
 describe("List Functionality", () => {
     test("renders correct number of employees", async () => {
       render(<EmployeeList employees={employees} />);
