@@ -3,7 +3,6 @@ import { Employee } from "../types/employee";
 import axios from "axios";
 
 const useEmployee = () => {
-  
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +17,7 @@ const useEmployee = () => {
         );
         setError(null);
         setEmployees(data);
-      } catch (err) {
+      } catch (err: any) {
         setError("Unable to fetch employees data.");
       } finally {
         setIsLoading(false);
