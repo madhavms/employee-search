@@ -20,7 +20,6 @@ export const useEmployee = () => {
                setError("");
                setEmployees(data);
             }
-            
          } catch (err) {
             if(isMounted)
                setError("Unable to fetch employees data.");
@@ -30,12 +29,10 @@ export const useEmployee = () => {
          }
       };
       getEmployees();
-
       return () => {
          isMounted = false;
       };
    }, []);
-
    return { employees, isLoading, error };
 };
 
