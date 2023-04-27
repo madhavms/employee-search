@@ -20,10 +20,10 @@ const Spinner = styled.div`
 `;
 
 export const Loader: React.FC = () => {
-  return (
+   return (
     <Container>
       <Spinner />
     </Container>
-  );
+   );
 };
 

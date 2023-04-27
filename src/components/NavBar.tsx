@@ -17,10 +17,10 @@ const Title = styled.h1`
 `;
 
 export const Navbar: React.FC = () => {
-  return (
+   return (
     <NavbarContainer>
       <Title>Employee Search</Title>
     </NavbarContainer>
-  );
+   );
 };
 

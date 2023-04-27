@@ -18,13 +18,13 @@ const renderApp = () => (
 );
 
 if (process.env.NODE_ENV === "development") {
-  root.render(
+   root.render(
     <StrictMode>
       {renderApp()}
     </StrictMode>
-  );
+   );
 } else {
-  root.render(renderApp());
+   root.render(renderApp());
 }
 
 reportWebVitals();

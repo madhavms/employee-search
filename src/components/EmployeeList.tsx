@@ -26,9 +26,9 @@ const ListItem = styled.li`
 `;
 
 export const EmployeeList: React.FC<ListProps> = ({ employees }) => (
-  <>
-    {!employees.length && <ErrorBanner>No employees found!</ErrorBanner>}
-    {!!employees.length && (
+   <>
+      {!employees.length && <ErrorBanner>No employees found!</ErrorBanner>}
+      {!!employees.length && (
       <List>
         {employees.map((employee) => (
           <ListItem key={employee.id}>
@@ -36,6 +36,6 @@ export const EmployeeList: React.FC<ListProps> = ({ employees }) => (
           </ListItem>
         ))}
       </List>
-    )}
-  </>
+      )}
+   </>
 );

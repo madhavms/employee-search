@@ -26,10 +26,10 @@ export const ErrorBanner = styled.div`
 `;
 
 export const ErrorComponent: React.FC<{ message: string }> = ({ message }) => {
-  return (
+   return (
     <Container>
       <ErrorBanner>{message}</ErrorBanner>
     </Container>
-  );
+   );
 };
 

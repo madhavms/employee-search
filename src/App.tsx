@@ -1,17 +1,17 @@
 import { Fragment, useCallback, useState } from "react";
 import styled from "@emotion/styled";
 import {
-  EmployeeList,
-  ErrorComponent,
-  EmployeeSearch,
-  Loader,
-  Navbar,
-  SubmitButton,
+   EmployeeList,
+   ErrorComponent,
+   EmployeeSearch,
+   Loader,
+   Navbar,
+   SubmitButton,
 } from "./components";
 import {
-  useEmployee,
-  useFilteredEmployees,
-  useHandleLogToConsole,
+   useEmployee,
+   useFilteredEmployees,
+   useHandleLogToConsole,
 } from "./hooks";
 
 const Container = styled.div`
@@ -37,25 +37,25 @@ const SearchContainer = styled.div`
 `;
 
 function App() {
-  const { employees, isLoading, error } = useEmployee();
-  const [filterText, setFilterText] = useState<string>("");
-  const { filteredEmployees } = useFilteredEmployees(employees, filterText);
-  const { handleLogToConsole } = useHandleLogToConsole(filteredEmployees);
+   const { employees, isLoading, error } = useEmployee();
+   const [filterText, setFilterText] = useState<string>("");
+   const { filteredEmployees } = useFilteredEmployees(employees, filterText);
+   const { handleLogToConsole } = useHandleLogToConsole(filteredEmployees);
 
-  const onSearch = useCallback((searchText: string) => {
-    setFilterText(searchText);
-  }, []);
-  const onKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === "Enter") {
-        event.currentTarget.blur();
-        handleLogToConsole();
-      }
-    },
-    [handleLogToConsole]
-  );
+   const onSearch = useCallback((searchText: string) => {
+      setFilterText(searchText);
+   }, []);
+   const onKeyDown = useCallback(
+      (event: React.KeyboardEvent<HTMLInputElement>) => {
+         if (event.key === "Enter") {
+            event.currentTarget.blur();
+            handleLogToConsole();
+         }
+      },
+      [handleLogToConsole]
+   );
 
-  return (
+   return (
     <Fragment>
       <Navbar />
       {isLoading && <Loader />}
@@ -67,12 +67,12 @@ function App() {
             <SubmitButton handleClick={handleLogToConsole} />
           </SearchContainer>
           <EmployeeList
-            employees={filterText ? filteredEmployees : employees}
+             employees={filterText ? filteredEmployees : employees}
           />
         </Container>
       )}
     </Fragment>
-  );
+   );
 }
 
 export default App;

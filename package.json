@@ -26,8 +26,8 @@
     "test": "jest --verbose",
     "eject": "react-scripts eject",
     "serve": "serve -s build",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "lint": "eslint . --ext .ts --ext .tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "prepare": "husky install"
   },
   "eslintConfig": {

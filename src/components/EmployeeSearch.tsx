@@ -33,22 +33,22 @@ const Container = styled.div`
 `;
 
 export const EmployeeSearch: React.FC<SearchProps> = memo(
-  ({ onSearch, onKeyDown }) => {
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      onSearch(event.target.value);
-    };
+   ({ onSearch, onKeyDown }) => {
+      const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+         onSearch(event.target.value);
+      };
 
-    return (
+      return (
       <Container>
         <Label htmlFor="searchInput">Employee Search:</Label>
         <Input
-          id="searchInput"
-          type="text"
-          placeholder="Enter a name"
-          onChange={handleOnChange}
-          onKeyDown={onKeyDown}
+           id="searchInput"
+           type="text"
+           placeholder="Enter a name"
+           onChange={handleOnChange}
+           onKeyDown={onKeyDown}
         />
       </Container>
-    );
-  }
+      );
+   }
 );
