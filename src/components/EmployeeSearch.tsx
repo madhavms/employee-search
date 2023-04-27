@@ -26,7 +26,6 @@ const Input = styled.input`
     font-size: 0.9rem;
   }
 `;
-
 const Container = styled.div`
   display: flex;
   align-items: center;

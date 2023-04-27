@@ -9,7 +9,6 @@ const NavbarContainer = styled.nav`
   color: #ffffff;
   padding: 0 16px;
 `;
-
 const Title = styled.h1`
   font-size: 1.5rem;
   margin: 0;
