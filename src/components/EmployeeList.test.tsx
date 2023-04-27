@@ -4,14 +4,14 @@ import { department } from "../types";
 import { employees } from "../mock-data";
 import { EmployeeList } from "./EmployeeList";
 
-jest.mock("chalk", () => ({
+jest.mock('chalk', () => ({
   green: (text: string) => text,
   blue: (text: string) => text,
   red: (text: string) => text,
 }));
 
-describe("Given EmployeesList component and when employees collection is provided", () => {
-  test("then it renders correct number of employees", async () => {
+describe('Given EmployeesList component and when employees collection is provided', () => {
+  test('then it renders correct number of employees', async () => {
     render(<EmployeeList employees={employees} />);
     const employeeList = await screen.findAllByRole("listitem");
     employeeList.forEach((employeeListItem) => {
@@ -20,7 +20,7 @@ describe("Given EmployeesList component and when employees collection is provide
     expect(employeeList).toHaveLength(employees.length);
   });
 
-  test("then it displays correct information for employees in Finance department", () => {
+  test('then it displays correct information for employees in Finance department', () => {
     render(<EmployeeList employees={employees} />);
 
     const financeEmployees = employees
@@ -36,7 +36,7 @@ describe("Given EmployeesList component and when employees collection is provide
     });
   });
 
-  test("then it displays correct information for employees in IT department", () => {
+  test('then it displays correct information for employees in IT department', () => {
     render(<EmployeeList employees={employees} />);
     const itEmployees = employees
       .filter((employee) => employee.department === department.IT)

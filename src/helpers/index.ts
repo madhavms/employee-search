@@ -1,2 +1,2 @@
-export {getEmployeeResultByDept} from './employeeHelper';
-export {webVitalCallback} from './webVitalHelper';
+export {getEmployeeResultByDept} from "./employeeHelper";
+export {webVitalCallback} from "./webVitalHelper";
