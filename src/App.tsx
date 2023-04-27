@@ -8,7 +8,6 @@ import {
   Navbar,
   SubmitButton,
 } from "./components";
-
 import {
   useEmployee,
   useFilteredEmployees,
@@ -24,7 +23,6 @@ const Container = styled.div`
   padding-top: 5rem;
   gap: 1rem;
 `;
-
 const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -47,7 +45,6 @@ function App() {
   const onSearch = useCallback((searchText: string) => {
     setFilterText(searchText);
   }, []);
-
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "Enter") {
@@ -69,7 +66,9 @@ function App() {
             <EmployeeSearch onSearch={onSearch} onKeyDown={onKeyDown} />
             <SubmitButton handleClick={handleLogToConsole} />
           </SearchContainer>
-          <EmployeeList employees={filterText ? filteredEmployees : employees} />
+          <EmployeeList
+            employees={filterText ? filteredEmployees : employees}
+          />
         </Container>
       )}
     </Fragment>
@@ -77,3 +76,4 @@ function App() {
 }
 
 export default App;
+

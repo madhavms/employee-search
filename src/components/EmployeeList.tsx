@@ -6,7 +6,6 @@ import { getEmployeeResultByDept } from "../helpers";
 interface ListProps {
   employees: Employee[];
 }
-
 const List = styled.ol`
   list-style-type: none;
   padding: 0;
