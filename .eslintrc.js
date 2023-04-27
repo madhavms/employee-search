@@ -49,6 +49,8 @@ module.exports = {
   
       // Enforce consistent use of quotes for string literals
       quotes: ["error", "double"],
+
+      ignorePatterns: [".eslintrc.js"],
   
       // Enforce consistent indentation
       indent: [
