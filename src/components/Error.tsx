@@ -6,7 +6,6 @@ const Container = styled.div`
   align-items: center;
   height: 100vh;
 `;
-
 export const ErrorBanner = styled.div`
   display: flex;
   justify-content: center;

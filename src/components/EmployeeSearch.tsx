@@ -14,7 +14,6 @@ const Label = styled.label`
     font-size: 1.1rem;
   }
 `;
-
 const Input = styled.input`
   padding: 10px;
   border: 1px solid #ccc;

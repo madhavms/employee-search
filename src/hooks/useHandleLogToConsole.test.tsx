@@ -10,17 +10,15 @@ jest.mock("chalk", () => ({
     red: (text: string) => text,
   }));
 
-
 describe("Given the useHandleLogToConsole hook and a list of employees", () => {
   test("When handleLogToConsole is called, Then employees should be logged to the console", () => {
-
     const { result } = renderHook(() => useHandleLogToConsole(employees));
     const { handleLogToConsole } = result.current;
-
     const logSpy = jest.spyOn(console, "log").mockImplementation();
 
     act(() => handleLogToConsole());
-    expect(logSpy).toHaveBeenCalledTimes(5); // 1 for log header and 2 for employee logs
+
+    expect(logSpy).toHaveBeenCalledTimes(5);
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("Dan Mac"));
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("Jake Ross"));
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("Ian Moss"));
@@ -30,15 +28,13 @@ describe("Given the useHandleLogToConsole hook and a list of employees", () => {
 
   test("When there are no employees, Then a message should be logged to the console", () => {
     const mockEmployees: Employee[] = [];
-
     const { result } = renderHook(() => useHandleLogToConsole(mockEmployees));
     const { handleLogToConsole } = result.current;
-
     const logSpy = jest.spyOn(console, "log").mockImplementation();
 
     act(() => handleLogToConsole());
 
-    expect(logSpy).toHaveBeenCalledTimes(2); // 1 for log header and 1 for no employees found
+    expect(logSpy).toHaveBeenCalledTimes(2);
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("No Employees Found!"));
     logSpy.mockRestore();
   });

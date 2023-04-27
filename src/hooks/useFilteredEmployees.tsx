@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Employee } from "../types";
 
 export const useFilteredEmployees = (employees: Employee[], filterText: string) => {
-  const [filteredEmployees, setFilteredEmployees] =
-    useState<Employee[]>(employees);
+  const [filteredEmployees, setFilteredEmployees] = useState<Employee[]>(employees);
 
   useEffect(() => {
     const filtered = filterText

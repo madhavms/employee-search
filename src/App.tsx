@@ -48,7 +48,6 @@ function App() {
     setFilterText(searchText);
   }, []);
 
-  // v63 why React.KeyboardEvent<HTMLInputElement> ? not show error
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "Enter") {

@@ -23,7 +23,6 @@ export const useEmployee = () => {
         setIsLoading(false);
       }
     };
-
     getEmployees();
   }, []);
 

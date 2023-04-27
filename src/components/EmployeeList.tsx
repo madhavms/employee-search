@@ -1,7 +1,7 @@
-import { Employee } from "../types";
-import { getEmployeeResultByDept } from "../helpers";
-import { ErrorBanner } from "./Error";
 import styled from "@emotion/styled";
+import { Employee } from "../types";
+import { ErrorBanner } from "./Error";
+import { getEmployeeResultByDept } from "../helpers";
 
 interface ListProps {
   employees: Employee[];
@@ -12,7 +12,6 @@ const List = styled.ol`
   padding: 0;
   margin: 0;
 `;
-
 const ListItem = styled.li`
   font-size: 1.2rem;
   line-height: 1.5;
