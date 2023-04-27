@@ -28,7 +28,10 @@ jobs:
 
         run: |
           echo "REACT_APP_EMPLOYEE_DATA_PATH=${REACT_APP_EMPLOYEE_DATA_PATH}" >> ./.env
-
+      
+      - name: Code Linting
+        run: npm run lint
+        
       - name: Run tests
         working-directory: ./
         run: npm test
