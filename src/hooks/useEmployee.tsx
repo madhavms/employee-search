@@ -8,6 +8,7 @@ export const useEmployee = () => {
    const [error, setError] = useState<string>("");
 
    useEffect(() => {
+      let isMounted = true;
       const getEmployees = async () => {
          try {
             const { data } = await axios(
@@ -15,15 +16,24 @@ export const useEmployee = () => {
                   ? `${process.env.REACT_APP_EMPLOYEE_DATA_PATH}`
                   : "/employees.json"
             );
-            setError("");
-            setEmployees(data);
+            if(isMounted) {
+               setError("");
+               setEmployees(data);
+            }
+            
          } catch (err) {
-            setError("Unable to fetch employees data.");
+            if(isMounted)
+               setError("Unable to fetch employees data.");
          } finally {
-            setIsLoading(false);
+            if(isMounted)
+               setIsLoading(false);
          }
       };
       getEmployees();
+
+      return () => {
+         isMounted = false;
+      };
    }, []);
 
    return { employees, isLoading, error };
