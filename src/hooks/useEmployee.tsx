@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Employee } from "../types";
 import axios from "axios";
+import { Employee } from "../types";
 
 export const useEmployee = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);

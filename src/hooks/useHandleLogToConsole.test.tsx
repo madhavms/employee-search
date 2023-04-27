@@ -1,8 +1,8 @@
+import { act } from "react-dom/test-utils";
 import { Employee } from "../types";
+import { employees } from "../mock-data";
 import { renderHook } from "@testing-library/react";
 import {useHandleLogToConsole} from "./useHandleLogToConsole";
-import { employees } from "../mock-data";
-import { act } from "react-dom/test-utils";
 
 jest.mock("chalk", () => ({
     green: (text: string) => text,
