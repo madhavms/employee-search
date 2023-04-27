@@ -1,13 +1,23 @@
 import { Employee, department } from "../types";
 
+const getName = (employee: Employee): string => {
+   return `${employee.firstName} ${employee.lastName}`;
+};
+
+const departmentRules = {
+   [department.FINANCE]: {
+      callback: (employee: Employee) => {
+         return `${getName(employee)} - ${employee.email}`;
+      },
+   },
+
+   [department.IT]: {
+      callback: (employee: Employee) => {
+         return `${getName(employee)} - ${employee.tel}`;
+      },
+   },
+};
+
 export const getEmployeeResultByDept = (employee: Employee): string => {
-   const name = `${employee.firstName} ${employee.lastName}`;
-   switch (employee.department) {
-      case department.FINANCE:
-         return `${name} - ${employee.email}`;
-      case department.IT:
-         return `${name} - ${employee.tel}`;
-      default:
-         return name;
-   }
+   return departmentRules[employee.department].callback(employee);
 };
