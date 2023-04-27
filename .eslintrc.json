@@ -1,7 +1,7 @@
 {
   "env": {},
   "globals": {},
-  "parser": "/Users/madhavmanohar/Desktop/employee-search/node_modules/@typescript-eslint/parser/dist/index.js",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module"
   },
