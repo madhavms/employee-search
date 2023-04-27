@@ -17,7 +17,7 @@ export const useEmployee = () => {
             );
             setError("");
             setEmployees(data);
-         } catch (err: any) {
+         } catch (err) {
             setError("Unable to fetch employees data.");
          } finally {
             setIsLoading(false);
