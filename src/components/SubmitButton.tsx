@@ -1,3 +1,4 @@
+import {FC} from "react";
 import styled from "@emotion/styled";
 
 interface ButtonProps {
@@ -26,7 +27,7 @@ const StyledButton = styled.button`
   }
 `;
 
-export const SubmitButton: React.FC<ButtonProps> = ({ handleClick }) => {
+export const SubmitButton: FC<ButtonProps> = ({ handleClick }) => {
    return (
     <StyledButton onClick={handleClick}>Submit</StyledButton>
    );

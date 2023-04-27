@@ -1,3 +1,4 @@
+import { FC } from "react";
 import styled from "@emotion/styled";
 
 const NavbarContainer = styled.nav`
@@ -16,7 +17,7 @@ const Title = styled.h1`
   letter-spacing: 1px;
 `;
 
-export const Navbar: React.FC = () => {
+export const Navbar: FC = () => {
    return (
     <NavbarContainer>
       <Title>Employee Search</Title>
