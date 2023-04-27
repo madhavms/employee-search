@@ -14,9 +14,10 @@ export const useFilteredEmployees = (
             `${employee.firstName} ${employee.lastName}`
                .toLowerCase()
                .includes(filterText.toLowerCase())
+               || employee.email.toLowerCase().includes(filterText.toLowerCase())
+               || `${employee.tel}`.includes(filterText.toLowerCase())
          )
          : employees;
-
       setFilteredEmployees(filtered);
    }, [employees, filterText]);
 
