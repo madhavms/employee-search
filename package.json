@@ -22,10 +22,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=$([ $NODE_ENV == 'production' ] && echo 'https://madhavms.github.io/employee-search' || echo '/') react-scripts build",
     "test:watch": "jest --watch",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +55,7 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "jest-transform-stub": "^2.0.0",
+    "serve": "^14.2.0",
     "ts-jest": "^29.1.0"
   }
 }
