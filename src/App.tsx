@@ -52,7 +52,7 @@ function App() {
             handleLogToConsole();
          }
       },
-      [handleLogToConsole]
+      []
    );
 
    return (
