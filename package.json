@@ -69,7 +69,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
-  }
+  }, 
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint . --ext .ts,.tsx"
+    ]
+  }  
 }
