@@ -1,5 +1,5 @@
 import { Employee } from "../types";
-import { getEmployeeResultByDept } from "../utils";
+import { getEmployeeResultByDept } from "../helpers";
 import { ErrorBanner } from "./Error";
 import styled from "@emotion/styled";
 

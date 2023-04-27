@@ -1,7 +1,7 @@
 import { Employee } from "../types";
 import chalk from "chalk";
 import { useState } from "react";
-import { getEmployeeResultByDept } from "../utils";
+import { getEmployeeResultByDept } from "../helpers";
 
 const printToConsole = (employee: Employee) => {
   const employeeData = getEmployeeResultByDept(employee);
