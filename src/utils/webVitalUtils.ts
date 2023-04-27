@@ -7,22 +7,20 @@ function logMetric({ name, delta, id }:{name:string, delta:number, id:number}) {
     console.log(`${chalk.blue(name)}: ${chalk.green(formattedDelta)}ms ${formattedId}`);
   }
 
-export const webVitalCallback = (metric:any) => {
-    switch (metric.name) {
-      case 'FCP':
-        logMetric({ ...metric, name: 'First Contentful Paint' });
-        break;
-      case 'LCP':
-        logMetric({ ...metric, name: 'Largest Contentful Paint' });
-        break;
-      case 'CLS':
-        logMetric({ ...metric, name: 'Cumulative Layout Shift' });
-        break;
-      case 'FID':
-        logMetric({ ...metric, name: 'First Input Delay' });
-        break;
-      case 'TTFB':
-        logMetric({ ...metric, name: 'Time to First Byte' });
-        break;
-    }
-};
+  export const webVitalCallback = (metric: any) => {
+    const metricMap: { [key: string]: string } = {
+      FCP: 'First Contentful Paint',
+      LCP: 'Largest Contentful Paint',
+      CLS: 'Cumulative Layout Shift',
+      FID: 'First Input Delay',
+      TTFB: 'Time to First Byte',
+    };    
+  
+    const mappedMetric = {
+      ...metric,
+      name: metricMap[metric.name] ?? metric.name,
+    };
+  
+    logMetric(mappedMetric);
+  };
+  
