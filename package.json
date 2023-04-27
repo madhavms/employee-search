@@ -2,7 +2,6 @@
   "name": "employee-search",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://madhavms.github.io/employee-search",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -22,7 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "PUBLIC_URL=$([ $NODE_ENV == 'production' ] && echo 'https://madhavms.github.io/employee-search' || echo '/') react-scripts build",
+    "build": "react-scripts build",
+    "build-gh-pages": "env PUBLIC_URL=https://madhavms.github.io/employee-search react-scripts build",
     "test:watch": "jest --watch",
     "test": "jest",
     "eject": "react-scripts eject",
