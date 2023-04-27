@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useState } from "react";
+import { Fragment, useCallback, useState, KeyboardEvent } from "react";
 import styled from "@emotion/styled";
 import {
    EmployeeList,
@@ -46,7 +46,7 @@ function App() {
       setFilterText(searchText);
    }, []);
    const onKeyDown = useCallback(
-      (event: React.KeyboardEvent<HTMLInputElement>) => {
+      (event: KeyboardEvent<HTMLInputElement>) => {
          if (event.key === "Enter") {
             event.currentTarget.blur();
             handleLogToConsole();

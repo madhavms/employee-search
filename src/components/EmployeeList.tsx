@@ -1,3 +1,4 @@
+import {FC} from "react";
 import styled from "@emotion/styled";
 import { Employee } from "../types";
 import { ErrorBanner } from "./Error";
@@ -25,7 +26,7 @@ const ListItem = styled.li`
   }
 `;
 
-export const EmployeeList: React.FC<ListProps> = ({ employees }) => (
+export const EmployeeList: FC<ListProps> = ({ employees }) => (
    <>
       {!employees.length && <ErrorBanner>No employees found!</ErrorBanner>}
       {!!employees.length && (

@@ -1,3 +1,4 @@
+import {FC} from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
@@ -19,7 +20,7 @@ const Spinner = styled.div`
   }
 `;
 
-export const Loader: React.FC = () => {
+export const Loader: FC = () => {
    return (
     <Container>
       <Spinner />

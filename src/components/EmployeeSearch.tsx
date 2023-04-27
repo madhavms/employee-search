@@ -1,9 +1,9 @@
-import { memo } from "react";
+import { memo, FC, KeyboardEvent, ChangeEvent } from "react";
 import styled from "@emotion/styled";
 
 interface SearchProps {
   onSearch: (search: string) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Label = styled.label`
@@ -32,9 +32,9 @@ const Container = styled.div`
   height: 60px;
 `;
 
-export const EmployeeSearch: React.FC<SearchProps> = memo(
+export const EmployeeSearch: FC<SearchProps> = memo(
    ({ onSearch, onKeyDown }) => {
-      const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
          onSearch(event.target.value);
       };
 
