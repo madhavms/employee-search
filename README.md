@@ -39,6 +39,8 @@ The application can be accessed at [https://madhavms.github.io/employee-search/]
 ## Husky Pre-Commit Hook
 The project also has a Husky pre-commit hook that runs before a commit is made. The hook runs ESLint to check the code staged for commit.
 
+![pre-commit-check.png](https://github.com/madhavms/high-low-chart/blob/master/images/pre-commit-check.png)
+
 ## Application Demo
 
 ![EmployeeSearchDemo.gif](https://github.com/madhavms/high-low-chart/blob/master/images/EmployeeSearchDemo.gif)
