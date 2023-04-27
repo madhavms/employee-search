@@ -27,21 +27,17 @@ const ListItem = styled.li`
   }
 `;
 
-export const EmployeeList: React.FC<ListProps> = ({ employees }) => {
-  if (!employees.length) {
-    return <ErrorBanner>No employees found!</ErrorBanner>
-  }
-
-  return (
-    <List>
-      {employees.map((employee) => {
-        return (
+export const EmployeeList: React.FC<ListProps> = ({ employees }) => (
+  <>
+    {!employees.length && <ErrorBanner>No employees found!</ErrorBanner>}
+    {!!employees.length && (
+      <List>
+        {employees.map((employee) => (
           <ListItem key={employee.id}>
             {getEmployeeResultByDept(employee)}
           </ListItem>
-        );
-      })}
-    </List>
-  );
-};
-
+        ))}
+      </List>
+    )}
+  </>
+);
