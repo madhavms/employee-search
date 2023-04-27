@@ -34,6 +34,8 @@ The application includes a "Submit" button that logs the currently visible emplo
 
 The CI/CD pipeline for this project is implemented using GitHub Actions. Every push to the main branch triggers the "Build and Deploy Employee Search App" workflow. This workflow performs essential tasks such as building the application, running unit tests to ensure code validity, linting the code to enforce style guidelines, and deploying the final product to GitHub Pages for easy access.
 
+The application can be accessed at [https://madhavms.github.io/employee-search/](https://madhavms.github.io/employee-search/)
+
 ## Husky Pre-Commit Hook
 The project also has a Husky pre-commit hook that runs before a commit is made. The hook runs ESLint to check the code staged for commit.
 
