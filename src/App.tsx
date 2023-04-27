@@ -43,7 +43,7 @@ function App() {
   const [filterText, setFilterText] = useState<string>("");
   const { filteredEmployees } = useFilteredEmployees(employees, filterText);
   const { handleLogToConsole } = useHandleLogToConsole(filteredEmployees);
-  // memoize onSearch function
+
   const onSearch = useCallback((searchText: string) => {
     setFilterText(searchText);
   }, []);
