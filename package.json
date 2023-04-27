@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "build-gh-pages": "env PUBLIC_URL=https://madhavms.github.io/employee-search react-scripts build",
     "test:watch": "jest --watch",
-    "test": "jest",
+    "test": "jest --verbose",
     "eject": "react-scripts eject",
     "serve": "serve -s build"
   },

@@ -11,8 +11,8 @@ jest.mock("chalk", () => ({
   }));
 
 
-describe("useHandleLogToConsole hook", () => {
-  it("should log employees to console", () => {
+describe("Given the useHandleLogToConsole hook and a list of employees", () => {
+  test("When handleLogToConsole is called, Then employees should be logged to the console", () => {
 
     const { result } = renderHook(() => useHandleLogToConsole(employees));
     const { handleLogToConsole } = result.current;
@@ -28,7 +28,7 @@ describe("useHandleLogToConsole hook", () => {
     logSpy.mockRestore();
   });
 
-  it("should handle no employees found", () => {
+  test("When there are no employees, Then a message should be logged to the console", () => {
     const mockEmployees: Employee[] = [];
 
     const { result } = renderHook(() => useHandleLogToConsole(mockEmployees));

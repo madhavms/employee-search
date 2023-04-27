@@ -12,8 +12,8 @@ jest.mock("chalk", () => ({
 
 jest.mock("./hooks/useEmployee");
 
-describe("Employee Search Functionality", () => {
-  test("should show only matching employees when a search query is entered", () => {
+describe("Given the user searches for an employee", () => {
+  test("When the search query matches an employee's first name, Then the matching employee is displayed", () => {
     const data = {
       isLoading: false,
       isError: false,
@@ -30,7 +30,7 @@ describe("Employee Search Functionality", () => {
     expect(ianMoss).not.toBeInTheDocument();
   });
 
-  test("display error message when no employees found", () => {
+  test("When the search query does not match any employee's name, Then an error message is displayed", () => {
     const data = {
       isLoading: false,
       isError: false,

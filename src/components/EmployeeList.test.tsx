@@ -11,8 +11,8 @@ jest.mock("chalk", () => ({
   }));
 
 
-describe("List Functionality", () => {
-    test("renders correct number of employees", async () => {
+describe("Given EmployeesList component and when employees collection is provided", () => {
+    test("then it renders correct number of employees", async () => {
       render(<EmployeeList employees={employees} />);
       const employeeList = await screen.findAllByRole("listitem");
       employeeList.forEach((employeeListItem) => {
@@ -21,7 +21,7 @@ describe("List Functionality", () => {
       expect(employeeList).toHaveLength(employees.length);
     });
   
-    test("displays correct information for employees in Finance department", () => {
+    test("then it displays correct information for employees in Finance department", () => {
   
       render(<EmployeeList employees={employees} />);
       
@@ -38,7 +38,7 @@ describe("List Functionality", () => {
         });
     });
   
-    test("displays correct information for employees in IT department", () => {
+    test("then it displays correct information for employees in IT department", () => {
   
       render(<EmployeeList employees={employees} />);
       const itEmployees = employees
