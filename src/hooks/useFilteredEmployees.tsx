@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Employee } from "../types";
+import { filterEmployeeList } from "../helpers/employeeHelper";
 
 export const useFilteredEmployees = (
    employees: Employee[],
@@ -10,13 +11,7 @@ export const useFilteredEmployees = (
 
    useEffect(() => {
       const filtered = filterText
-         ? employees.filter((employee) =>
-            `${employee.firstName} ${employee.lastName}`
-               .toLowerCase()
-               .includes(filterText.toLowerCase())
-               || employee.email.toLowerCase().includes(filterText.toLowerCase())
-               || `${employee.tel}`.includes(filterText.toLowerCase())
-         )
+         ? employees.filter(employee => filterEmployeeList(employee, filterText))
          : employees;
       setFilteredEmployees(filtered);
    }, [employees, filterText]);
