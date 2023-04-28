@@ -8,29 +8,28 @@ export const useEmployee = () => {
    const [error, setError] = useState<string>("");
 
    useEffect(() => {
-      let isMounted = true;
+      const abortController = new AbortController();
+      const signal = abortController.signal;
+
       const getEmployees = async () => {
          try {
             const { data } = await axios(
                process.env.REACT_APP_EMPLOYEE_DATA_PATH
                   ? `${process.env.REACT_APP_EMPLOYEE_DATA_PATH}`
-                  : "/employees.json"
+                  : "/employees.json",
+               { signal}
             );
-            if(isMounted) {
-               setError("");
-               setEmployees(data);
-            }
+            setError("");
+            setEmployees(data);
          } catch (err) {
-            if(isMounted)
-               setError("Unable to fetch employees data.");
+            setError("Unable to fetch employees data.");
          } finally {
-            if(isMounted)
-               setIsLoading(false);
+            setIsLoading(false);
          }
       };
       getEmployees();
       return () => {
-         isMounted = false;
+         abortController.abort();
       };
    }, []);
    return { employees, isLoading, error };
