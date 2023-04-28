@@ -21,3 +21,11 @@ const departmentRules = {
 export const getEmployeeResultByDept = (employee: Employee): string => {
    return departmentRules[employee.department].callback(employee);
 };
+
+export const filterEmployeeList = (employee: Employee, filterText: string) => {
+   const {firstName, lastName, email, tel} = employee;
+   const searchText = filterText.toLowerCase();
+   return `${firstName} ${lastName}`.toLowerCase().includes(searchText)
+       || email.toLowerCase().includes(searchText)
+       || `${tel}`.includes(searchText);
+};
