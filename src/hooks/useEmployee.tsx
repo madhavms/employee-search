@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Employee } from "../types";
+import { getEmployees, getEmployeesCleanUp } from "../helpers/employeeHelper";
 
 export const useEmployee = () => {
    const [employees, setEmployees] = useState<Employee[]>([]);
@@ -8,30 +8,24 @@ export const useEmployee = () => {
    const [error, setError] = useState<string>("");
 
    useEffect(() => {
-      const abortController = new AbortController();
-      const signal = abortController.signal;
-
-      const getEmployees = async () => {
-         try {
-            const { data } = await axios(
-               process.env.REACT_APP_EMPLOYEE_DATA_PATH
-                  ? `${process.env.REACT_APP_EMPLOYEE_DATA_PATH}`
-                  : "/employees.json",
-               { signal}
-            );
-            setError("");
+      console.log("useEffect called");
+      setIsLoading(true);
+      getEmployees()
+         .then(data => {
+            console.log(data);
             setEmployees(data);
-         } catch (err) {
-            setError("Unable to fetch employees data.");
-         } finally {
             setIsLoading(false);
-         }
-      };
-      getEmployees();
-      return () => {
-         abortController.abort();
-      };
+         })
+         .catch(err => {
+            console.log(error);
+            setError(err.message);
+            setIsLoading(false);
+         });
+
+      return () => 
+         getEmployeesCleanUp();
    }, []);
+   
    return { employees, isLoading, error };
 };
 
