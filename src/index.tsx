@@ -17,7 +17,14 @@ const renderApp = () => (
   </BrowserRouter>
 );
 
-if (process.env.NODE_ENV === "development") {
+/*
+TODO: Need to revert to development to enable React Strict Mode
+once testing done for AbortController in useEmployee.tsx.
+Strict mode with React 18 causing useEfffect to be called twice
+and hence the AbortController is being called twice and causing
+error in console.
+*/
+if (process.env.NODE_ENV === "test") {
    root.render(
     <StrictMode>
       {renderApp()}
